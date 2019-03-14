@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Train Scheduler</title>
+
+    <!-- jQuery -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <!-- Added Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Jumbotron for Title -->
+        <div class="jumbotron" style="background-color:darkslategray ; color: white;">
+            <h1 class="text-center">
+                <strong>
+                    <i class="fa fa-newspaper-o"></i> Train Schedule...if you like</strong>
+            </h1>
+        </div>
+
+        <!-- This row will handle all of the retrieved employee data -->
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+
+                <!-- This card will initially be made up of a card and wells for each of the trains entered -->
+                <div class="card">
+
+                    <!-- card Heading for the Current Train Schedule box -->
+                    <div class="card-header">
+                        <strong>
+                            <i class="fa fa-table"></i> Current Train Schedule</strong>
+                    </div>
+
+                    <!-- This main card will hold each of the added employees -->
+                    <div class="card-body" id="train-data">
+                        <div class="row">
+                            <div class="col-sm-2" id="added-tname"></div>
+                            <div class="col-sm-2" id="added-tdest"></div>
+                            <div class="col-sm-2" id="added-tfreq"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- First Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <br>
+                <!-- First card is for handling the search parameters -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                            <i class="fa fa-list-alt"></i> Add Train</strong>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- Here we create an HTML Form for handling the inputs-->
+                        <form role="form">
+
+                            <!-- Here we create the text box for capturing the train name -->
+                            <div class="form-group">
+                                <label for="search">Train Name</label>
+                                <input type="text" class="form-control" id="train-name">
+                            </div>
+
+                            <!-- Here we capture the destination that the user wants to retrieve  -->
+                            <div class="form-group">
+                                <label for="search">Destination</label>
+                                <input type="text" class="form-control" id="destination">
+                            </div>
+
+                            <!-- Here we capture the 1st Train Time Parameter-->
+                            <div class="form-group">
+                                <label for="start-year">First Train Time (HH:mm)[World Time]</label>
+                                <input type="text" class="form-control" id="train-time">
+                            </div>
+
+                            <!-- Here we capture the frequency Parameter -->
+                            <div class="form-group">
+                                <label for="end-year">Frequency (in minutes)</label>
+                                <input type="text" class="form-control" id="frequency">
+                            </div>
+
+                            <!-- Here we have our final submit button -->
+                            <button type="submit" class="btn btn-success" id="add-train">
+                                <i class="fa fa-search"></i> Add a Train</button>
+                            <button class="btn btn-danger" id="clear-all">
+                                <i class="fa fa-trash"></i> Clear Results</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script -->
+    <script src="assets/logic.js"></script>
+
+</body>
+
+</html>
