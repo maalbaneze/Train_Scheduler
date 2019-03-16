@@ -1,0 +1,15 @@
+body {
+    background-image: url("1377951.jpg");
+    background-position: center;
+    background-image: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.jumbotron {
+    background-color:darkslategray; 
+    color: white;
+    height: 10px;
+}
+h1 {
+    font-size: 44px;
+}

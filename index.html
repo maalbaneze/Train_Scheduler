@@ -6,16 +6,20 @@
     <meta charset="UTF-8">
     <title>Train Scheduler</title>
 
+    <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/style.css">
+
     <!-- jQuery -->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <script src="https://code.jquery.com/jquery.js"></script>
 
     <!-- Added Moment JS -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
-    <!-- Bootstrap CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
@@ -27,7 +31,7 @@
     <div class="container">
 
         <!-- Jumbotron for Title -->
-        <div class="jumbotron" style="background-color:darkslategray ; color: white;">
+        <div class="jumbotron">
             <h1 class="text-center">
                 <strong>
                     <i class="fa fa-newspaper-o"></i> Train Schedule...if you like</strong>
@@ -48,12 +52,14 @@
                             <i class="fa fa-table"></i> Current Train Schedule</strong>
                     </div>
 
-                    <!-- This main card will hold each of the added employees -->
+                    <!-- This main card will hold each of the added trains -->
                     <div class="card-body" id="train-data">
                         <div class="row">
                             <div class="col-sm-2" id="added-tname"></div>
                             <div class="col-sm-2" id="added-tdest"></div>
                             <div class="col-sm-2" id="added-tfreq"></div>
+                            <div class="col-sm-2" id="next-train"></div>
+                            <div class="col-sm-2" id="minutes-away"></div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +74,7 @@
                 <div class="card">
                     <div class="card-header">
                         <strong>
-                            <i class="fa fa-list-alt"></i> Add Train</strong>
+                            <i class="fa fa-list-alt"></i> Add Trains</strong>
                     </div>
                     <div class="card-body">
 
@@ -89,20 +95,20 @@
 
                             <!-- Here we capture the 1st Train Time Parameter-->
                             <div class="form-group">
-                                <label for="start-year">First Train Time (HH:mm)[World Time]</label>
+                                <label for="first-time">First Train Time (HH:mm)[World Time]</label>
                                 <input type="text" class="form-control" id="train-time">
                             </div>
 
                             <!-- Here we capture the frequency Parameter -->
                             <div class="form-group">
-                                <label for="end-year">Frequency (in minutes)</label>
+                                <label for="frequency">Frequency (in minutes)</label>
                                 <input type="text" class="form-control" id="frequency">
                             </div>
 
                             <!-- Here we have our final submit button -->
                             <button type="submit" class="btn btn-success" id="add-train">
                                 <i class="fa fa-search"></i> Add a Train</button>
-                            <button class="btn btn-danger" id="clear-all">
+                            <button type="submit" class="btn btn-danger" id="clear-all">
                                 <i class="fa fa-trash"></i> Clear Results</button>
 
                         </form>
