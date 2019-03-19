@@ -71,7 +71,7 @@ $(document).ready(function () {
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
-    dataRef.ref().on("child_added", function (childSnapshot) {
+    database.ref().on("child_added", function (childSnapshot) {
         // Log everything that's coming out of snapshot
         console.log(childSnapshot.val().trainName);
         console.log(childSnapshot.val().trainDest);
@@ -95,7 +95,7 @@ $(document).ready(function () {
         console.log("Errors handled: " + errorObject.code);
     });
 
-    dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
+    database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
         // Change the HTML to reflect
         $("#added-tname").text(snapshot.val().trainName);
         $("#added-tdest").text(snapshot.val().trainDest);
